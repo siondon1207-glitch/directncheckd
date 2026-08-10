@@ -1,23 +1,721 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>Home</title>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <!--
-      Need a visual blank slate?
-      Remove all code in `styles.css`!
-    -->
-    <link rel="stylesheet" href="styles.css" />
-    <script type="module" src="script.js"></script>
-  </head>
-  <body>
-    <nav>
-      <a href="/" aria-current="page">Home</a>
-      <a href="/page2.html">Other page</a>
-    </nav>
-    <main>
-      <h1>Home page</h1>
-    </main>
-  </body>
-</html>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Product",
+        "name": "기아 EV4 (Kia EV4)",
+        "image": [
+          "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/ev4/style/ev4_exterior.jpg"
+        ],
+        "description": "2026년형 기아 EV4 준중형 전기 세단 공식 가격 및 사양 정보. 스탠다드, 롱레인지, GT 트림의 상세 금액 및 전기차 보조금 안내.",
+        "brand": {
+          "@type": "Brand",
+          "name": "기아 (Kia)"
+        },
+        "offers": {
+          "@type": "AggregateOffer",
+          "priceCurrency": "KRW",
+          "lowPrice": "39800000",
+          "highPrice": "55170000",
+          "offerCount": "8"
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "2026년형 기아 EV4의 공식 시작 가격은 얼마인가요?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "2026년형 기아 EV4의 공식 시작 가격은 개별소비세 및 세제 혜택을 적용하기 전 기준으로 스탠다드 에어 트림 3,980만 원부터 시작하며, 세제 혜택 후 기준으로는 약 4,042만 원부터 형성되어 있습니다."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "기아 EV4의 전기차 보조금 혜택은 어느 정도 수준인가요?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "국고 보조금의 경우 트림 및 휠 사이즈에 따라 약 481만 원에서 최대 555만 원까지 지원받을 수 있으며, 서울시 등 지자체 보조금을 합산하면 실제 구매 금액은 3,000만 원대 초중반까지 낮아집니다."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+  <style>
+    html, body, div, span, h1, h2, h3, h4, p, a, ul, li, table, thead, tbody, tr, th, td, form, label, input, select, button {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      line-height: 1.8;
+      color: #2c3e50;
+      background-color: #f4f7f6;
+    }
+    header {
+      background: linear-gradient(135deg, #2d5a5a 0%, #1a3a3a 100%);
+      color: #ffffff;
+      padding: 50px 20px;
+      text-align: center;
+    }
+    header h1 {
+      font-size: 2.2rem;
+      font-weight: 700;
+      margin-bottom: 15px;
+    }
+    header p {
+      font-size: 1.1rem;
+      opacity: 0.9;
+      max-width: 800px;
+      margin: 0 auto 25px auto;
+    }
+    .cta-btn {
+      background-color: #cf6b4f;
+      color: #ffffff;
+      padding: 15px 35px;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 30px;
+      display: inline-block;
+      transition: background-color 0.3s ease;
+      font-size: 1.1rem;
+    }
+    .cta-btn:hover {
+      background-color: #b85a40;
+    }
+    nav {
+      background-color: #e6ece9;
+      padding: 15px 0;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid #d1ded9;
+    }
+    nav a {
+      margin: 0 15px;
+      color: #2d5a5a;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1rem;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    main {
+      max-width: 1100px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+    section {
+      background-color: #ffffff;
+      padding: 40px;
+      border-radius: 12px;
+      margin-bottom: 30px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+    }
+    h2 {
+      font-size: 1.8rem;
+      color: #2d5a5a;
+      margin-bottom: 25px;
+      border-left: 5px solid #cf6b4f;
+      padding-left: 15px;
+    }
+    h3 {
+      font-size: 1.3rem;
+      color: #1a3a3a;
+      margin-top: 25px;
+      margin-bottom: 15px;
+    }
+    p {
+      margin-bottom: 20px;
+      text-align: justify;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 25px 0;
+    }
+    th, td {
+      border: 1px solid #e1e8e5;
+      padding: 15px;
+      text-align: center;
+    }
+    th {
+      background-color: #e6ece9;
+      color: #2d5a5a;
+      font-weight: 700;
+    }
+    tr:nth-child(even) {
+      background-color: #f9fbfb;
+    }
+    .chart-container {
+      background-color: #e6ece9;
+      padding: 30px;
+      border-radius: 10px;
+      margin: 25px 0;
+    }
+    .chart-title {
+      font-weight: bold;
+      margin-bottom: 20px;
+      color: #2d5a5a;
+      text-align: center;
+    }
+    .chart-bar-wrapper {
+      margin-bottom: 20px;
+    }
+    .chart-label {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 0.95rem;
+      font-weight: 600;
+    }
+    .chart-bar-track {
+      background-color: #ffffff;
+      border-radius: 8px;
+      height: 25px;
+      overflow: hidden;
+    }
+    .chart-bar {
+      height: 100%;
+      border-radius: 8px;
+      transition: width 1s ease-in-out;
+    }
+    .calculator-box {
+      background-color: #e6ece9;
+      padding: 40px;
+      border-radius: 12px;
+      margin-top: 30px;
+    }
+    .form-group {
+      margin-bottom: 20px;
+    }
+    .form-group label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 600;
+      color: #2d5a5a;
+    }
+    .form-group select, .form-group input[type="text"], .form-group input[type="number"] {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #c2d1cc;
+      border-radius: 6px;
+      background-color: #ffffff;
+      font-size: 1rem;
+      color: #2c3e50;
+    }
+    .form-checkbox-group {
+      margin: 15px 0;
+    }
+    .form-checkbox-label {
+      display: inline-flex;
+      align-items: center;
+      margin-right: 20px;
+      font-weight: 500;
+      cursor: pointer;
+    }
+    .form-checkbox-label input {
+      margin-right: 8px;
+      transform: scale(1.2);
+    }
+    .calc-btn {
+      background-color: #2d5a5a;
+      color: #ffffff;
+      padding: 15px 30px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+      width: 100%;
+      font-size: 1.1rem;
+      transition: background-color 0.3s ease;
+    }
+    .calc-btn:hover {
+      background-color: #1a3a3a;
+    }
+    .result-box {
+      background-color: #ffffff;
+      padding: 25px;
+      border-radius: 8px;
+      margin-top: 25px;
+      border: 2px solid #cf6b4f;
+      display: none;
+    }
+    .result-box h4 {
+      color: #cf6b4f;
+      margin-bottom: 15px;
+      font-size: 1.2rem;
+    }
+    .result-item {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 10px;
+      padding-bottom: 10px;
+      border-bottom: 1px dashed #e1e8e5;
+    }
+    .result-item:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+    .result-total {
+      font-weight: bold;
+      font-size: 1.3rem;
+      color: #2d5a5a;
+    }
+    .keyword-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 15px;
+      margin-top: 25px;
+    }
+    .keyword-item {
+      background-color: #f4f7f6;
+      padding: 12px;
+      border-radius: 6px;
+      text-align: center;
+      font-size: 0.9rem;
+      color: #2d5a5a;
+      border: 1px solid #e1e8e5;
+    }
+    .external-links {
+      background-color: #f9fbfb;
+      border: 1px solid #d1ded9;
+      padding: 25px;
+      border-radius: 8px;
+      margin-top: 30px;
+    }
+    .external-links h4 {
+      color: #2d5a5a;
+      margin-bottom: 15px;
+    }
+    .external-links ul {
+      list-style-type: none;
+    }
+    .external-links li {
+      margin-bottom: 12px;
+    }
+    .external-links a {
+      color: #cf6b4f;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .external-links a:hover {
+      text-decoration: underline;
+    }
+    footer {
+      background-color: #1a3a3a;
+      color: #ffffff;
+      text-align: center;
+      padding: 30px;
+      font-size: 0.95rem;
+      margin-top: 50px;
+    }
+    footer p {
+      text-align: center;
+      margin-bottom: 10px;
+    }
+    footer a {
+      color: #e6ece9;
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>2026년형 기아 EV4 가격 및 실구매 혜택 총정리</h1>
+    <p>세련된 디자인과 혁신적인 공간 활용성, 보조금 맞춤형 전기 세단의 진수 기아 EV4의 트림별 비용과 보조금 지원을 상세히 안내해 드립니다.</p>
+    <a href="#calculator" class="cta-btn">실시간 모의 견적 계산하기</a>
+  </header>
+
+  <nav>
+    <a href="#overview">모델 정보</a>
+    <a href="#price-list">트림별 가격</a>
+    <a href="#subsidies">보조금 안내</a>
+    <a href="#comparisons">모델 비교</a>
+    <a href="#calculator">견적 계산기</a>
+    <a href="#reviews">사용자 후기</a>
+  </nav>
+
+  <main>
+    <section id="overview">
+      <h2>기아 EV4 브랜드와 2026년형 시장 전망</h2>
+      <p>2026년형 준중형 전기 세단 시장에서 독보적인 기대를 한 몸에 받고 있는 기아 EV4 스탠다드 및 기아 EV4 롱레인지 모델은 현대자동차그룹의 입증된 E-GMP 전기차 전용 플랫폼을 적용하여 기존 내연기관 파생 전기차 모델과는 궤를 달리하는 최적화된 실내 거주성을 선사합니다. 기아 오퍼짓 유나이티드 디자인 가치관을 투영하여 세단의 날렵한 실루엣에 미래지향적인 디테일을 구현해 완성도를 크게 높였습니다.</p>
+      
+      <p>특히 2026년 모델 연식변경 과정에서 안전성과 거주성이 대폭 개선되었으며 가성비에 기반한 합리적인 기본 출고 금액이 책정되어 수입 프리미엄 브랜드 및 국내 경쟁 준중형 라인업과의 순위 다툼에서 압도적인 주도권을 행사할 것으로 예상됩니다. 전 트림에 페달 오조작 안전 보조 장치와 가속 제한 보조 시스템이 기본 탑재되면서 안전성에 대한 소비자들의 눈높이를 충분히 충족하고 있습니다.</p>
+      
+      <div class="chart-container">
+        <div class="chart-title">주요 전기 세단 1회 충전 주행거리 비교 (단위: km)</div>
+        <div class="chart-bar-wrapper">
+          <span class="chart-label">기아 EV4 롱레인지 (2WD 17인치 사양 기준) - 530km</span>
+          <div class="chart-bar-track">
+            <div class="chart-bar" style="width: 100%; background-color: #cf6b4f;"></div>
+          </div>
+        </div>
+        <div class="chart-bar-wrapper">
+          <span class="chart-label">기아 EV3 롱레인지 (2WD 17인치 기준) - 501km</span>
+          <div class="chart-bar-track">
+            <div class="chart-bar" style="width: 94%; background-color: #8ca6db;"></div>
+          </div>
+        </div>
+        <div class="chart-bar-wrapper">
+          <span class="chart-label">경쟁 수입 준중형 전기 세단 A - 440km</span>
+          <div class="chart-bar-track">
+            <div class="chart-bar" style="width: 83%; background-color: #a4b2a6;"></div>
+          </div>
+        </div>
+      </div>
+      
+      <p>최근 전기차 캐즘 현상에도 불구하고 기아 EV4 주행거리 수준은 실주행 기준 500km를 가뿐하게 상회하며 도심 출퇴근은 물론이고 장거리 패밀리카 비중으로 활용하기에도 부족함이 전혀 없다는 평가를 받고 있습니다. 더불어 어스 트림 이상에 탑재된 고급 다이내믹 웰컴 라이팅과 뒷좌석 차음 글라스 설계 등 세부적인 디테일은 프리미엄 준중형 전기차로서의 차별점을 극대화해 줍니다.</p>
+    </section>
+
+    <section id="price-list">
+      <h2>기아 EV4 트림별 세부 가격 및 예상 금액</h2>
+      <p>2026년형 기아 EV4의 공식 카탈로그 기준 시작가는 개별소비세 인하 종료 이후의 조정을 반영하여 스탠다드 에어 사양이 약 3,980만 원부터 산정되었습니다. 실용성에 집중한 에어(Air) 트림, 패밀리 맞춤형 선호 편의옵션이 완비된 어스(Earth) 트림, 공격적인 디자인의 GT-Line 트림, 그리고 다이내믹한 듀얼모터 주행 성능을 체감할 수 있는 신규 GT 트림까지 다채로운 종류의 제품 포트폴리오를 제공합니다.</p>
+      
+      <table>
+        <thead>
+          <tr>
+            <th>트림 구분</th>
+            <th>구동 방식</th>
+            <th>배터리 타입</th>
+            <th>세제혜택 전 가격 (원)</th>
+            <th>세제혜택 후 가격 (원)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>스탠다드 에어</td>
+            <td>2WD (전륜)</td>
+            <td>리튬 인산철 LFP</td>
+            <td>39,800,000</td>
+            <td>38,400,000</td>
+          </tr>
+          <tr>
+            <td>스탠다드 어스</td>
+            <td>2WD (전륜)</td>
+            <td>리튬 인산철 LFP</td>
+            <td>43,000,000</td>
+            <td>41,500,000</td>
+          </tr>
+          <tr>
+            <td>롱레인지 에어</td>
+            <td>2WD (전륜)</td>
+            <td>NCM 삼원계</td>
+            <td>44,500,000</td>
+            <td>42,900,000</td>
+          </tr>
+          <tr>
+            <td>롱레인지 어스</td>
+            <td>2WD (전륜)</td>
+            <td>NCM 삼원계</td>
+            <td>47,800,000</td>
+            <td>46,100,000</td>
+          </tr>
+          <tr>
+            <td>롱레인지 GT-Line</td>
+            <td>2WD (전륜)</td>
+            <td>NCM 삼원계</td>
+            <td>49,500,000</td>
+            <td>47,800,000</td>
+          </tr>
+          <tr>
+            <td>롱레인지 4WD 어스</td>
+            <td>4WD (사륜)</td>
+            <td>NCM 삼원계</td>
+            <td>51,200,000</td>
+            <td>49,400,000</td>
+          </tr>
+          <tr>
+            <td>기아 EV4 GT</td>
+            <td>4WD (사륜)</td>
+            <td>NCM 삼원계</td>
+            <td>54,330,000</td>
+            <td>52,500,000</td>
+          </tr>
+        </tbody>
+      </table>
+      
+      <p>세제 혜택이 정상적으로 적용된 이후의 평균 출고가는 기본 구성 기준 3,800만 원 선에서 5,200만 원 선에 포진하고 있습니다. 여기에 각종 드라이브 와이즈 패키지, 하만카돈 프리미엄 사운드 시스템 및 헤드업 디스플레이 빌트인 캠 패키지 등의 상세 옵션을 전부 선택하게 될 시에는 추가적으로 일정량의 금액 인상이 발생할 수 있으니 꼼꼼한 계산기 두드리기가 필수적으로 요구됩니다.</p>
+    </section>
+
+    <section id="subsidies">
+      <h2>2026년 전기차 보조금 제도 및 지역별 혜택 수령 방법</h2>
+      <p>정부와 각 지방자치단체에서 개별적으로 지급하는 전기차 보조금 지원금은 차량 등급과 휠 규격, 전비 효율성 지표에 맞춰 차등 적용됩니다. 기아 EV4의 경우 국고 보조금이 최저 481만 원에서 롱레인지 기준 최고 555만 원까지 넉넉하게 산정되어 있어 실제 소비자가 체감하는 진입 비용 장벽은 대폭 낮아집니다. 다음은 각 광역시도별 평균 지자체 보조금을 결합한 수령 예상 도표입니다.</p>
+      
+      <table>
+        <thead>
+          <tr>
+            <th>대표 수령 지역</th>
+            <th>차종 트림 및 휠 사양</th>
+            <th>국고 보조금 (원)</th>
+            <th>지자체 보조금 (원)</th>
+            <th>최종 합산 혜택 금액 (원)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>서울특별시</td>
+            <td>롱레인지 17인치 기준</td>
+            <td>5,550,000</td>
+            <td>1,660,000</td>
+            <td>7,210,000</td>
+          </tr>
+          <tr>
+            <td>인천광역시</td>
+            <td>롱레인지 17인치 기준</td>
+            <td>5,550,000</td>
+            <td>1,660,000</td>
+            <td>7,210,000</td>
+          </tr>
+          <tr>
+            <td>부산광역시</td>
+            <td>롱레인지 17인치 기준</td>
+            <td>5,550,000</td>
+            <td>1,960,000</td>
+            <td>7,510,000</td>
+          </tr>
+          <tr>
+            <td>제주특별자치도</td>
+            <td>롱레인지 17인치 기준</td>
+            <td>5,550,000</td>
+            <td>3,820,000</td>
+            <td>9,370,000</td>
+          </tr>
+          <tr>
+            <td>서울특별시</td>
+            <td>스탠다드 17인치 기준</td>
+            <td>5,120,000</td>
+            <td>1,530,000</td>
+            <td>6,650,000</td>
+          </tr>
+          <tr>
+            <td>제주특별자치도</td>
+            <td>스탠다드 17인치 기준</td>
+            <td>5,120,000</td>
+            <td>3,530,000</td>
+            <td>8,650,000</td>
+          </tr>
+        </tbody>
+      </table>
+      
+      <p>기아 EV4 전기 스탠다드 모델의 경우 국고 및 지자체 혜택을 전면 수령하는 방식으로 지역 거주 조건에 부합할 시, 제주도 등 혜택이 많은 보조금 성지 지역에서는 2,000만 원대 후반 혹은 3,000만 원대 극초반의 실구매가 산출도 불가능한 시나리오가 아닙니다. 반면 대도시권인 서울이나 인천 지역에서는 평균적으로 약 700만 원대의 세이브 효과를 볼 수 있습니다. 보조금 소진 일정이 매달 지역별로 다르게 전개되므로 신속한 신청이 요구됩니다.</p>
+    </section>
+
+    <section id="calculator">
+      <h2>기아 EV4 모의 견적 및 실시간 가격 계산기</h2>
+      <p>본 계산기 위젯은 사용자가 수령하고 싶은 트림, 옵션 구성 및 보조금 거주 지역을 스스로 대입하여 가입 조건별 다이렉트 예상 구매 비용과 월 할부 요금을 직접 도출해 낼 수 있도록 돕기 위해 구현되었습니다. 상세 사양별 비용 차이점 분석에 활용해 보시기 바랍니다.</p>
+      
+      <div class="calculator-box">
+        <form id="ev4-calc-form" onsubmit="return false;">
+          <div class="form-group">
+            <label for="trim-select">원하시는 트림을 지정해 주세요</label>
+            <select id="trim-select" onchange="calculateEV4Price();">
+              <option value="38400000">스탠다드 에어 (세제혜택 후 약 3,840만 원)</option>
+              <option value="41500000">스탠다드 어스 (세제혜택 후 약 4,150만 원)</option>
+              <option value="42900000">롱레인지 에어 (세제혜택 후 약 4,290만 원)</option>
+              <option value="46100000" selected>롱레인지 어스 (세제혜택 후 약 4,610만 원)</option>
+              <option value="47800000">롱레인지 GT-Line (세제혜택 후 약 4,780만 원)</option>
+              <option value="49400000">롱레인지 4WD 어스 (세제혜택 후 약 4,940만 원)</option>
+              <option value="52500000">고성능 GT 4WD (세제혜택 후 약 5,250만 원)</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label>추가 옵션 패키지를 선택해 주세요</label>
+            <div class="form-checkbox-group">
+              <label class="form-checkbox-label">
+                <input type="checkbox" id="opt-hud" value="1200000" onchange="calculateEV4Price();"> HUD 및 빌트인 캠 2 (120만 원)
+              </label>
+              <label class="form-checkbox-label">
+                <input type="checkbox" id="opt-drive" value="1100000" onchange="calculateEV4Price();"> 드라이브 와이즈 안전 보조 (110만 원)
+              </label>
+              <label class="form-checkbox-label">
+                <input type="checkbox" id="opt-sound" value="1000000" onchange="calculateEV4Price();"> 하만카돈 프리미엄 오디오 (100만 원)
+              </label>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="region-select">보조금 지원금 수령 예정 지역</label>
+            <select id="region-select" onchange="calculateEV4Price();">
+              <option value="7210000">서울특별시 / 수도권 대다수 지역 (약 721만 원 혜택)</option>
+              <option value="7510000">부산광역시 / 경남 주요 도시 (약 751만 원 혜택)</option>
+              <option value="9370000">제주특별자치도 (최대 약 937만 원 혜택)</option>
+              <option value="7080000">대전광역시, 대구광역시, 광주광역시 (약 708만 원 혜택)</option>
+              <option value="0">보조금 수령 불가 / 기타 해외 수출 사양 (0원)</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="installment-select">원하는 할부 요금제 개월 수 선택</label>
+            <select id="installment-select" onchange="calculateEV4Price();">
+              <option value="36">36개월 다이렉트 할부</option>
+              <option value="48">48개월 다이렉트 할부</option>
+              <option value="60" selected>60개월 다이렉트 할부</option>
+            </select>
+          </div>
+
+          <button type="button" class="calc-btn" onclick="calculateEV4Price();">상세 모의 견적 계산 완료하기</button>
+        </form>
+
+        <div class="result-box" id="calc-result">
+          <h4>모의 계산 결과 요약</h4>
+          <div class="result-item">
+            <span>선택한 기본 트림 차량 금액 (세제혜택 반영)</span>
+            <span id="res-base-price">0원</span>
+          </div>
+          <div class="result-item">
+            <span>추가 지정 선택 옵션 총합</span>
+            <span id="res-option-price">0원</span>
+          </div>
+          <div class="result-item">
+            <span>국가 및 지자체 합산 전기차 지원금</span>
+            <span style="color: #cf6b4f;" id="res-subsidy">-0원</span>
+          </div>
+          <div class="result-item">
+            <span>예상 취등록세 (전기차 140만 원 감면 혜택 자동 대입)</span>
+            <span id="res-tax">0원</span>
+          </div>
+          <div class="result-item result-total">
+            <span>최종 실제 현금 일시불 인도 비용</span>
+            <span id="res-total-cost">0원</span>
+          </div>
+          <div class="result-item" style="border-top: 2px solid #2d5a5a; margin-top: 15px; padding-top: 15px;">
+            <span style="font-weight: 600;">월 예상 납입금 (금리 연 4.5% 균등 분할 대입 기준)</span>
+            <span style="font-weight: bold; color: #cf6b4f;" id="res-monthly">월 0원</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="comparisons">
+      <h2>기아 EV4 핵심 장단점 및 타 차종과의 명확한 차이점</h2>
+      <p>전기 세단 구매 결정을 망설이게 만드는 보편적인 요소들을 하나씩 해결한 모델이 바로 기아 EV4입니다. 배터리 열관리 시스템을 더욱 미세하게 지능화하여 한겨울 저온 상태에서의 주행거리 낙폭을 기존 이세대 배터리 탑재 차량들과 비교해 현격히 조율해 낸 부분이 최대의 장점입니다. 더불어 무선 OTA 소프트웨어 업데이트 서비스 범위를 전면 확대하여 출고 이후에도 자율주행 알고리즘 고속도로 주행 보조 HDA2 사양 성능이 주기적으로 정밀하게 고도화됩니다.</p>
+      
+      <p>단점 측면에서 살펴보면, 2열 헤드룸 공간이 유선형 공기역학 루프 라인 구조 탓에 키가 다소 큰 탑승객에게 약간은 타이트하게 느껴질 여지가 있습니다. 또한 초고속 800V 대용량 충전 시스템 대신 대중화된 400V 전압 인프라 기반 충전 속도 세팅을 취한 부분이 일부 초급속 매니아들에게 아쉬움으로 제기되기도 하나, 5.8 km/kWh에 이르는 전비를 무기로 하여 잦은 배터리 공급 충전 스트레스를 애초에 불식시키는 대안을 영리하게 수립하였습니다.</p>
+      
+      <h3>기아 최초 인테리어 모드와 쾌적한 실내 제원</h3>
+      <p>기아 브랜드 전기차 역사상 처음으로 선보인 전용 인테리어 모드 기능은 차량 시트가 침대처럼 자연스럽게 눕는 릴렉션 앵글 기능과 연동됩니다. 야간에는 스마트폰 듀얼 무선 충전 패드 주변부와 전면 대시보드를 부드럽게 감싸 안는 그레이 니트 내장 소재의 독특한 엠비언트 라이팅이 활성화되어 흡사 집 안 거실과도 같은 편안한 무드를 연출합니다. 센터 콘솔 하단에는 고출력 100W C타입 충전 단자가 풍성하게 탑재되어 있어 야외 패밀리 피크닉이나 차박 시에도 뛰어난 전자 장치 유연성을 자랑합니다.</p>
+    </section>
+
+    <section id="reviews">
+      <h2>실제 동호회 회원들의 출고 평가와 커뮤니티 반응</h2>
+      <p>신차 출고가 시작된 이후 여러 대형 자동차 동호회 사이트 게시판들은 기아 EV4 가격 포지셔닝에 대한 평가글로 풍성하게 장식되고 있습니다. 보배드림 커뮤니티 유저들 사이에서는 가솔린 준중형 스포츠 모델이나 동급 수입 차량들과 비교해 다이렉트 유지비 절감 폭이 생각보다 훨씬 우수하다는 의견이 중론을 이룹니다. 연간 약 2만 킬로미터를 주행한다고 가정한 시나리오 하에서 오일 교환비나 연료 비용을 전부 상쇄하고 전용 충전 크레딧 요금제 할인 혜택을 이용하면 연평균 누적 비용을 극단적으로 방어할 수 있다는 상세한 수식 계산 결과가 이를 입증합니다.</p>
+      
+      <p>디시인사이드 전기차 마이너 갤러리나 에펨코리아 및 펨코 동호회 단체톡 게시글 공간에서는 영업 일선 대리점에서 제시하는 비공식 현금지원이나 가입 사은품 조건 등이 담겨 있는 대리점 성지 좌표를 찾아 헤매는 유저들의 검색 행렬이 줄을 잇고 있습니다. 일시불 카드 혜택 중 하나인 오토캐시백 방법 및 딜러 자체 지원금 혜택을 다각도로 조합하여 전국에서 제일 저렴한곳 혹은 가장 싼곳을 선점했다는 인증 글들이 하루가 다르게 쇄도하고 있는 상황입니다.</p>
+      
+      <p>무엇보다 내돈내산으로 전액 차량 인도를 마무리한 실제 오너들의 종합적인 후기에 따르면, 롱레인지 19인치 및 17인치 세단 라인업은 정숙함과 풍절음 통제 면에서 고전적인 가솔린 고급 패밀리카 이상의 쾌적함을 준다고 입을 모아 말합니다. 뒷좌석의 이중접합 차음 글라스가 가져오는 방음 효과가 예민한 자녀를 둔 패밀리 고객들의 선호 순위 지표를 확실하게 끌어올렸다는 세부적인 분석입니다.</p>
+    </section>
+
+    <section>
+      <h2>기아 EV4 인터넷 정보 검색 및 구매 정보</h2>
+      <p>많은 사용자들이 네이버, 구글, 유튜브, 트위터, 인스타그램, 페이스북, 카카오톡, 텔레그램, 토스 등 다양한 채널을 활용해 기아 EV4의 차량 정보와 유지 비용을 알아보고 있습니다. 최근에는 최신 생성형 인공지능 기술인 제미나이 또는 챗지피티 같은 최첨단 AI 시스템을 통해 실시간 세제 혜택이나 출고 일정을 대조해 보는 스마트한 구매자들도 급증하는 추세입니다.</p>
+      
+      <p>특히 온라인 전용 홈페이지 사이트를 통해 다이렉트 신차 금융 상품에 가입 신청하는 경우, 추가적인 금융사 제휴 상품권 이벤트나 사은품 혜택을 챙겨 받을 수도 있습니다. 전국 대리점 성지의 할인 현황과 지자체별 보조금 실시간 소진율에 대해 각 전기차 전문 딜러 에이전트 업체의 맞춤형 컨설팅 및 카카오톡 1대1 상담 서비스를 요청해 보는 것을 추천해 드립니다. 본인에게 가장 든든한 조건의 최저가 견적을 도출해 내는 가장 명료하고 합리적인 방법이 될 것입니다.</p>
+    </section>
+
+    <section>
+      <h2>기아 EV4 핵심 테마 키워드 목록</h2>
+      <p>네이버 및 검색포털 자동완성, 연관검색어, 함께 많이 찾는 키워드를 체계적으로 수집하여 제공합니다.</p>
+      <div class="keyword-grid">
+        <div class="keyword-item">기아 EV4 출시일</div>
+        <div class="keyword-item">EV4 보조금 혜택</div>
+        <div class="keyword-item">EV4 스탠다드 LFP 배터리</div>
+        <div class="keyword-item">EV4 롱레인지 주행거리</div>
+        <div class="keyword-item">준중형 전기세단 비교</div>
+        <div class="keyword-item">기아 오퍼짓 유나이티드 디자인</div>
+        <div class="keyword-item">EV4 GT 고성능 292마력</div>
+        <div class="keyword-item">전기차 취등록세 감면 계산</div>
+        <div class="keyword-item">디시 전기차 갤러리 후기</div>
+        <div class="keyword-item">보배드림 기아 EV4 평가</div>
+        <div class="keyword-item">펨코 자동차 게시판 추천</div>
+        <div class="keyword-item">다이렉트 전기차 금융 비교</div>
+        <div class="keyword-item">신차 패키지 성지 좌표</div>
+        <div class="keyword-item">전기차 보조금 가장 저렴한곳</div>
+        <div class="keyword-item">C타입 100W USB 충전단자</div>
+        <div class="keyword-item">뒷좌석 이중접합 차음유리</div>
+        <div class="keyword-item">하만카돈 오디오 성능</div>
+        <div class="keyword-item">마이키아 모바일 앱 연동</div>
+        <div class="keyword-item">전기차 충전 요금제 절약법</div>
+        <div class="keyword-item">기아 80주년 이벤트 사은품</div>
+      </div>
+    </section>
+
+    <section class="external-links">
+      <h4>신뢰성 있는 정보 링크</h4>
+      <p>공신력 있는 공식 외부 사이트를 통하여 기아 EV4에 대한 기술 정보 및 구매 지원금 관련 상세 정보를 추가로 확인하실 수 있습니다.</p>
+      <ul>
+        <li>1. <a href="https://directnchecke.koreahankang.com" target="_blank" rel="noopener">Reliabledone 기아 EV4 보조금 및 최저 견적 실시간 추적 시스템</a></li>
+        <li>2. <a href="https://namu.wiki/w/%EA%B8%B0%EC%95%84_EV4" target="_blank" rel="noopener">나무위키 기아 EV4 차종 통합 상세 백과 정보</a></li>
+        <li>3. <a href="https://www.kia.com" target="_blank" rel="noopener">기아자동차 공식 한국어 브랜드 홈페이지</a></li>
+      </ul>
+    </section>
+  </main>
+
+  
+  <script>
+    function multiplyNumbers(a, b) {
+      if (b === 0) return 0;
+      return a / (1 / b);
+    }
+
+    function calculateEV4Price() {
+      var trimSelect = document.getElementById("trim-select");
+      var basePrice = parseInt(trimSelect.value);
+
+      var optionPrice = 0;
+      if (document.getElementById("opt-hud").checked) {
+        optionPrice += parseInt(document.getElementById("opt-hud").value);
+      }
+      if (document.getElementById("opt-drive").checked) {
+        optionPrice += parseInt(document.getElementById("opt-drive").value);
+      }
+      if (document.getElementById("opt-sound").checked) {
+        optionPrice += parseInt(document.getElementById("opt-sound").value);
+      }
+
+      var regionSelect = document.getElementById("region-select");
+      var subsidy = parseInt(regionSelect.value);
+
+      var taxablePrice = basePrice + optionPrice;
+      
+      var taxRate = 0.07;
+      var rawTax = Math.floor(taxablePrice / 14.2857);
+      var taxReduction = 1400000;
+      var finalTax = rawTax - taxReduction;
+      if (finalTax < 0) {
+        finalTax = 0;
+      }
+
+      var totalCost = taxablePrice - subsidy + finalTax;
+      if (totalCost < 0) {
+        totalCost = 0;
+      }
+
+      var installmentSelect = document.getElementById("installment-select");
+      var period = parseInt(installmentSelect.value);
+
+      var interestRate = 0.045;
+      var monthlyInterest = totalCost / (12 / interestRate);
+      var monthlyPayment = Math.floor((totalCost / period) + monthlyInterest);
+
+      document.getElementById("res-base-price").innerText = basePrice.toLocaleString() + "원";
+      document.getElementById("res-option-price").innerText = optionPrice.toLocaleString() + "원";
+      document.getElementById("res-subsidy").innerText = "-" + subsidy.toLocaleString() + "원";
+      document.getElementById("res-tax").innerText = finalTax.toLocaleString() + "원";
+      document.getElementById("res-total-cost").innerText = totalCost.toLocaleString() + "원";
+      document.getElementById("res-monthly").innerText = "월 " + monthlyPayment.toLocaleString() + "원";
+
+      document.getElementById("calc-result").style.display = "block";
+    }
+  </script>
+  
